@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css6.css">
+    <title>Instagram Login</title>
+</head>
+<body>
+    <div class="container">
+        <img src="instageimage.png" alt="Instagram Logo">
+        <form id="loginForm">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+        <p class="or">OR</p>
+        <a href="#">Forgot Password?</a>
+    </div>
+    <script >
+        document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("loginForm");
+
+    loginForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        
+        if (username === "hr0684622@gmail.com" && password === "harshitRyzen5") {
+            alert("Login successful!");
+        } else {
+            alert("Login failed. Please check your credentials.");
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

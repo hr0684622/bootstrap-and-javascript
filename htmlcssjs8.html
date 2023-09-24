@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css8.css">
+
+</head>
+
+<body>
+    <form id="myForm">
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="firstName" ><br>
+        <span id="firstNameError" class="error"></span><br>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" ><br>
+        <span id="lastNameError" class="error"></span><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" ><br>
+        <span id="emailError" class="error"></span><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" ><br>
+        <span id="passwordError" class="error"></span><br>
+
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" ><br>
+        <span id="confirmPasswordError" class="error"></span><br>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br>
+
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" ><br>
+        <span id="ageError" class="error"></span><br>
+
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" ><br>
+        <span id="phoneError" class="error"></span><br>
+
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" ></textarea><br>
+        <span id="addressError" class="error"></span><br>
+
+        <select id="state" name="state" >
+            <option value="">Select State</option>
+            <option value="ny">New York</option>
+            <option value="ca">California</option>
+            <option value="tx">Texas</option>
+
+        </select><br>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" ><br>
+        <span id="countryError" class="error"></span><br>
+
+        <label for="languages">Languages Known:</label>
+        <input type="text" id="languages" name="languages" ><br>
+
+
+        <input type="radio" name="" id="" >Hereby I declare all the given details are true
+        <p>Login to <a href="#">Ethnus</a> website</p>
+
+        <input type="submit" value="REGISTER">
+    </form>
+    <script>
+        const form = document.getElementById("myForm");
+        const firstNameInput = document.getElementById("firstName");
+        const lastNameInput = document.getElementById("lastName");
+        const emailInput = document.getElementById("email");
+        const passwordInput = document.getElementById("password");
+        const confirmPasswordInput = document.getElementById("confirmPassword");
+        const genderInput = document.getElementById("gender");
+        const ageInput = document.getElementById("age");
+        const phoneInput = document.getElementById("phone");
+        const addressInput = document.getElementById("address");
+        const stateInput = document.getElementById("state");
+
+        const firstNameError = document.getElementById("firstNameError");
+        const lastNameError = document.getElementById("lastNameError");
+        const emailError = document.getElementById("emailError");
+        const passwordError = document.getElementById("passwordError");
+        const confirmPasswordError = document.getElementById("confirmPasswordError");
+        const ageError = document.getElementById("ageError");
+        const phoneError = document.getElementById("phoneError");
+        const addressError = document.getElementById("addressError");
+        const stateError = document.getElementById("stateError");
+
+
+        form.addEventListener("submit", function (event) {
+            let isValid = true;
+
+
+            if (firstNameInput.value.trim() === "") {
+                firstNameError.textContent = "First Name cannot be empty";
+                isValid = false;
+            } else {
+                firstNameError.textContent = "";
+            }
+
+
+            if (lastNameInput.value.trim() === "") {
+                lastNameError.textContent = "Last Name cannot be empty";
+                isValid = false;
+            } else {
+                lastNameError.textContent = "";
+            }
+
+            if (emailInput.value.trim() === "") {
+                emailError.textContent = "Email cannot be empty";
+                isValid = false;
+            } else if (!isValidEmail(emailInput.value)) {
+                emailError.textContent = "Please enter a valid email address";
+                isValid = false;
+            } else {
+                emailError.textContent = "";
+            }
+
+            if (passwordInput.value.length < 6) {
+                passwordError.textContent = "Password must be at least 6 characters long";
+                isValid = false;
+            } else {
+                passwordError.textContent = "";
+            }
+            if (confirmPasswordInput.value !== passwordInput.value) {
+                confirmPasswordError.textContent = "Passwords do not match";
+                isValid = false;
+            } else {
+                confirmPasswordError.textContent = "";
+            }
+            if (ageInput.value.trim() === "") {
+                ageError.textContent = "Age cannot be empty";
+                isValid = false;
+            } else {
+                ageError.textContent = "";
+            }
+            if (phoneInput.value.trim() === "") {
+                phoneError.textContent = "Phone number cannot be empty";
+                isValid = false;
+            } else {
+                phoneError.textContent = "";
+            }
+            if (addressInput.value.trim() === "") {
+                addressError.textContent = "Address cannot be empty";
+                isValid = false;
+            } else {
+                addressError.textContent = "";
+            }
+            if (stateInput.value === "") {
+                stateError.textContent = "Please select a state";
+                isValid = false;
+            } else {
+                stateError.textContent = "";
+            }
+
+            if (!isValid) {
+                event.preventDefault();
+            }
+        });
+
+
+
+    </script>
+</body>
+
+</html>

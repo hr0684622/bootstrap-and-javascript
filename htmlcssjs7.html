@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="css7.css">
+</head>
+
+<body>
+  <section class="stage">
+    <div class="sky">
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+    </div>
+    <div id="train" class="train">
+      <div class="wagon"></div>
+      <div class="wagon"></div>
+      <div class="wagon"></div>
+      <div class="locomotive">
+        <div class="cabin"></div>
+        <div class="motor"></div>
+        <div class="chimney">
+          <div class="smoke"></div>
+        </div>
+        <div class="light"></div>
+      </div>
+    </div>
+    <span id="xy"><button id="button1" type="button">START</button> <button id="button2" type="button">STOP</button></span>
+  </section>
+      <script>
+        button1.addEventListener("click",function(){
+           train.style.animation="voyage 20s linear infinite";
+        });
+        button2.addEventListener("click",function(){
+          train.style.animation="";
+        });
+      </script>
+</body>
+
+</html>
